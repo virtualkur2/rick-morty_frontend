@@ -1,6 +1,6 @@
 import type React from "react";
 import { AppTitle, NavBarContainer } from "./Navbar.styles";
-import { APP_NAME } from "../constants";
+import { APP_NAME } from "../../constants";
 
 const Navbar: React.FC = () => {
     return (

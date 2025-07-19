@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 import './App.css'
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import { useEffect } from 'react';
 import { APP_NAME } from './constants';
 
