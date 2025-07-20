@@ -6,13 +6,13 @@ import { useLoginMutation } from "../../redux/api/endpoints/auth.endpoints";
 import { authSelector } from "../../redux/selectors/auth.selectors";
 import { APP_ROUTES } from "../../constants";
 import { clearError, setCredentials } from "../../redux/slices/auth.slice";
-import { StyledLink } from "./LoginPage.styles";
 import Form from "../../components/form/Form";
 import Input from "../../components/form/input/Input";
 import ErrorMessage from "../../components/form/error/ErrorMessage";
 import { SubmitButton } from "../../components/button";
 import FormTitle from "../../components/form/title/FormTitle";
 import FormContainer from "../../components/form/container/FormContainer";
+import { CustomLink } from "../../components/link/CustomLink";
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -72,7 +72,7 @@ const LoginPage = () => {
                 >{isLoading ? 'Login in...' : 'Login'}</SubmitButton>
             </Form>
             {error && <ErrorMessage>{( error as any).data?.message ?? (error as any).message ?? 'Login failed'}</ErrorMessage>}
-            <StyledLink to={APP_ROUTES.signup}>Don't have an account? Sign Up</StyledLink>
+            <CustomLink to={APP_ROUTES.signup}>Don't have an account? Sign Up</CustomLink>
         </FormContainer>
     );
 }
