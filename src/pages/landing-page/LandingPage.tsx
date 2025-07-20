@@ -1,7 +1,6 @@
-import type React from "react";
 import { Description, LandingPageContainer, StyledLink, Title } from "./LandingPage.styles";
 
-const LandingPage: React.FC = () => {
+const LandingPage = () => {
     return (
         <LandingPageContainer>
             <Title>Welcome to Rick & Morty Favorites!</Title>
