@@ -1,4 +1,4 @@
-import { AppTitle, LogoutButton, NavBarContainer, NavLinks, StyledNavLink, UserInfo } from "./Navbar.styles";
+import { AppTitle, NavBarContainer, NavLinks, StyledNavLink, UserInfo } from "./Navbar.styles";
 import { APP_NAME, APP_ROUTES } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { authSelector } from "../../redux/selectors/auth.selectors";
 import { UserRole } from "../../types/user-role.type";
 import { logout } from "../../redux/slices/auth.slice";
+import { LogoutButton } from "../button";
 
 const Navbar = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -32,7 +33,7 @@ const Navbar = () => {
                                     onClick={handleLogout}
                                 >Manage Users</StyledNavLink>
                             )}
-                            <LogoutButton>Logout</LogoutButton>
+                            <LogoutButton type="button">Logout</LogoutButton>
                         </>
                     ) : (
                         <>

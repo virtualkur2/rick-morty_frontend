@@ -48,16 +48,3 @@ export const UserInfo = styled('span')({
     marginRight: '15px',
     fontSize: '0.9rem',
 });
-
-export const LogoutButton = styled('button')({
-    backgroundColor: 'rgb(220, 53, 69)',
-    color: 'rgb(255, 255, 255)',
-    border: 'none',
-    padding: '8px 12px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-    ':hover': {
-        backgroundColor: 'rgb(200, 35, 51)',
-    },
-});

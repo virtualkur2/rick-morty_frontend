@@ -20,53 +20,6 @@ export const Title = styled('h2')({
     marginBottom: '20px',
 });
 
-export const Form = styled('form')({
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
-    gap: '20px',
-});
-
-export const Input = styled('input')({
-    width: '70%',
-    padding: '12px',
-    marginBottom: '15px',
-    border: '1px solid rgb(68, 68, 68)',
-    borderRadius: '5px',
-    backgroundColor: 'rgb(51, 51, 51)',
-    color: 'rgb(238, 238, 238)',
-    fontSize: '1rem',
-    ':focus': {
-        outline: 'none',
-        borderColor: 'rgb(100, 108, 255)',
-    },
-});
-
-export const Button = styled('button')({
-    width: '50%',
-    backgroundColor: 'rgb(40, 167, 69)',
-    color: 'rgb(255, 255, 255)',
-    padding: '12px',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '1.1rem',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-    ':hover': {
-        backgroundColor: 'rgb(33, 136, 56)',
-    },
-    ':disabled': {
-        backgroundColor: 'rgb(85, 85, 85)',
-        cursor: 'not-allowed',
-    },
-});
-
-export const ErrorMessage = styled('p')({
-    color: 'rgb(255, 77, 77)',
-    marginTop: '10px',
-    fontSize: '0.9rem',
-});
-
 export const StyledLink = styled(Link)({
     marginTop: '20px',
     color: 'rgb(100, 108, 255)',
