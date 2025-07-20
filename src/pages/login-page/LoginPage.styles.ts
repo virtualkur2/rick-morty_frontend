@@ -15,11 +15,6 @@ export const AuthContainer = styled('div')({
     margin: '40px auto',
 });
 
-export const Title = styled('h2')({
-    color: 'rgb(100, 108, 255)',
-    marginBottom: '20px',
-});
-
 export const StyledLink = styled(Link)({
     marginTop: '20px',
     color: 'rgb(100, 108, 255)',

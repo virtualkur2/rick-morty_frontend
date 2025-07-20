@@ -6,11 +6,12 @@ import { useLoginMutation } from "../../redux/api/endpoints/auth.endpoints";
 import { authSelector } from "../../redux/selectors/auth.selectors";
 import { APP_ROUTES } from "../../constants";
 import { clearError, setCredentials } from "../../redux/slices/auth.slice";
-import { AuthContainer, StyledLink, Title } from "./LoginPage.styles";
+import { AuthContainer, StyledLink } from "./LoginPage.styles";
 import Form from "../../components/form/Form";
 import Input from "../../components/form/input/Input";
 import ErrorMessage from "../../components/form/error/ErrorMessage";
 import { SubmitButton } from "../../components/button";
+import FormTitle from "../../components/form/title/FormTitle";
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -48,7 +49,7 @@ const LoginPage = () => {
 
     return (
         <AuthContainer>
-            <Title>Login</Title>
+            <FormTitle>Login</FormTitle>
             <Form onSubmit={handleSubmit}>
                 <Input
                     type="email"
