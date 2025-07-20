@@ -12,7 +12,7 @@ import Input from "../../components/form/input/Input";
 import ErrorMessage from "../../components/form/error/ErrorMessage";
 import { SubmitButton } from "../../components/button";
 import FormTitle from "../../components/form/title/FormTitle";
-import FormContainer from "../../components/form/container/FormContianer";
+import FormContainer from "../../components/form/container/FormContainer";
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
