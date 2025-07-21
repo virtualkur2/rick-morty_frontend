@@ -2,6 +2,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { RootState } from "../store";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+export const API_TAGS = {
+    characters: 'Characters',
+
+};
 
 export const apiService = createApi({
     reducerPath: 'apiService',
@@ -17,6 +21,6 @@ export const apiService = createApi({
         },
         redirect: 'follow',
     }),
-    tagTypes: [],
+    tagTypes: Object.values(API_TAGS),
     endpoints: () => ({}),
 });
