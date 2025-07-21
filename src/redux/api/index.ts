@@ -4,6 +4,7 @@ import type { RootState } from "../store";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 export const API_TAGS = {
     characters: 'Characters',
+    favorite: 'Favorite',
 
 };
 

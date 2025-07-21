@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { authSelector } from "../../redux/selectors/auth.selectors";
 import { APP_ROUTES } from "../../constants";
-import { useGetCharactersQuery } from "../../redux/api/endpoints/characters.endpoint";
+import { useAddFavoriteMutation, useGetCharactersQuery, useRemoveFavoriteMutation } from "../../redux/api/endpoints/characters.endpoint";
 import Card from "../../components/card/Card";
 import CardImage from "../../components/card/CardImage";
 import CardContent from "../../components/card/CardContent";
@@ -18,6 +18,8 @@ const DashboardPage = () => {
 
     const navigate = useNavigate();
     const { token } = useSelector(authSelector);
+    const [addFavorite] = useAddFavoriteMutation();
+    const [removeFavorite] = useRemoveFavoriteMutation();
 
     useEffect(() => {
         if (!token) {
@@ -38,6 +40,20 @@ const DashboardPage = () => {
         }
     };
 
+    const handleAddFavorite = (characterId: number) => {
+        const attemptAddFavorite = async (characterId: number) => {
+            await addFavorite({ characterId });
+            }
+        attemptAddFavorite(characterId);
+    }
+
+    const handleRemoveFavorite = (favoriteId: string) => {
+        const attemptRemoveFavorite = async (favoriteId: string) => {
+            await removeFavorite(favoriteId);
+        }
+        attemptRemoveFavorite(favoriteId);
+    }
+
     const totalPages = charactersData?.info?.pages || 1;
     
     return (
@@ -54,7 +70,13 @@ const DashboardPage = () => {
                             <CharacterDetails>Species: {character.species}</CharacterDetails>
                         </CardContent>
                         <FavoriteIconWrapper>
-                            <StarIcon isFavorite={character.isFavorite} onClick={() => console.log('onClick')}/>
+                            {character.favoriteId
+                                ? (
+                                    <StarIcon isFavorite={true} onClick={() => handleRemoveFavorite(character.favoriteId!)}/>
+                                ):(
+                                    <StarIcon isFavorite={false} onClick={() => handleAddFavorite(character.id)}/>
+                                )
+                            }
                         </FavoriteIconWrapper>
                     </Card>
                 ))}
