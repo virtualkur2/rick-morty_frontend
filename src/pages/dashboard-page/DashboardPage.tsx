@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import Pagination from "../../components/pagination/Pagination";
 import PageTitle from "../../components/title/PageTitle";
-import { CardGrid, Container } from "./DashboardPage.styles";
+import { CardGrid, CharacterDetails, CharacterName, Container } from "./DashboardPage.styles";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { authSelector } from "../../redux/selectors/auth.selectors";
 import { APP_ROUTES } from "../../constants";
 import { useGetCharactersQuery } from "../../redux/api/endpoints/characters.endpoint";
+import Card from "../../components/card/Card";
+import CardImage from "../../components/card/CardImage";
+import CardContent from "../../components/card/CardContent";
 
 const DashboardPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -41,11 +44,16 @@ const DashboardPage = () => {
             <PageTitle>Rick & Morty Characters</PageTitle>
             <Pagination currentPage={currentPage}  totalPages={totalPages} onPageChange={handlePageChange} />
             <CardGrid>
-                <div>Card 1</div>
-                <div>Card 2</div>
-                <div>Card 3</div>
-                <div>...</div>
-                <div>Card 20</div>
+                {charactersData?.results.map((character) => (
+                    <Card key={character.id}>
+                        <CardImage src={character.image} alt={character.name} />
+                        <CardContent>
+                            <CharacterName>{character.name}</CharacterName>
+                            <CharacterDetails>Status: {character.status}</CharacterDetails>
+                            <CharacterDetails>Species: {character.species}</CharacterDetails>
+                        </CardContent>
+                    </Card>
+                ))}
             </CardGrid>
             <Pagination currentPage={currentPage}  totalPages={totalPages} onPageChange={handlePageChange} />
         </Container>

@@ -18,3 +18,15 @@ export const CardGrid = styled('div')({
     maxWidth: '800px',
     margin: '20px 0',
 });
+
+export const CharacterName = styled('h3')({
+    margin: '0 0 8px 0',
+    color: 'rgb(255, 255, 255)',
+    fontSize: '1.5rem',
+});
+
+export const CharacterDetails = styled('p')({
+    margin: 0,
+    color: 'rgb(187, 187, 187)',
+    fontSize: '0.9rem',
+});
