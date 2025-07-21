@@ -21,6 +21,7 @@ export interface CharacterDto {
     status: typeof CharacterStatus[keyof typeof CharacterStatus];
     species: string;
     image: string;
+    isFavorite: boolean;
     // extended information only for admin's
     type?: string;
     gender?: typeof CharacterGender[keyof typeof CharacterGender];

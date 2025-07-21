@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Pagination from "../../components/pagination/Pagination";
 import PageTitle from "../../components/title/PageTitle";
-import { CardGrid, CharacterDetails, CharacterName, Container } from "./DashboardPage.styles";
+import { CardGrid, CharacterDetails, CharacterName, Container, FavoriteIconWrapper } from "./DashboardPage.styles";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { authSelector } from "../../redux/selectors/auth.selectors";
@@ -10,6 +10,7 @@ import { useGetCharactersQuery } from "../../redux/api/endpoints/characters.endp
 import Card from "../../components/card/Card";
 import CardImage from "../../components/card/CardImage";
 import CardContent from "../../components/card/CardContent";
+import StarIcon from "../../components/icons/StarIcon";
 
 const DashboardPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -52,6 +53,9 @@ const DashboardPage = () => {
                             <CharacterDetails>Status: {character.status}</CharacterDetails>
                             <CharacterDetails>Species: {character.species}</CharacterDetails>
                         </CardContent>
+                        <FavoriteIconWrapper>
+                            <StarIcon isFavorite={character.isFavorite} onClick={() => console.log('onClick')}/>
+                        </FavoriteIconWrapper>
                     </Card>
                 ))}
             </CardGrid>

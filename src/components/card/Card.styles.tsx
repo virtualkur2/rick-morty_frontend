@@ -12,8 +12,4 @@ export const CardContainer = styled('div')({
     width: '100%',
     maxWidth: '600px',
     boxSizing: 'border-box',
-    transition: 'transform 0.2s ease-in-out',
-    ':hover': {
-        transform: 'translateY(-5px)',
-    }
 });

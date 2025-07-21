@@ -30,3 +30,9 @@ export const CharacterDetails = styled('p')({
     color: 'rgb(187, 187, 187)',
     fontSize: '0.9rem',
 });
+
+export const FavoriteIconWrapper = styled('div')({
+    flexShrink: 0, 
+    display: 'flex',
+    alignItems: 'center',
+});
