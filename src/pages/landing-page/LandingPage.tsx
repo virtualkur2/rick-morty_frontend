@@ -1,9 +1,10 @@
-import { Description, LandingPageContainer, StyledLink, Title } from "./LandingPage.styles";
+import PageTitle from "../../components/title/PageTitle";
+import { Description, LandingPageContainer, StyledLink } from "./LandingPage.styles";
 
 const LandingPage = () => {
     return (
         <LandingPageContainer>
-            <Title>Welcome to Rick & Morty Favorites!</Title>
+            <PageTitle>Welcome to Rick & Morty Favorites!</PageTitle>
             <Description>
                 Discover characters, manage your favorites, and explore the universe of Rick and Morty.
                 This application demonstrates a full-stack project built with Hexagonal Architecture (backend)

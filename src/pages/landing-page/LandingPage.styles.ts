@@ -10,12 +10,6 @@ export const LandingPageContainer = styled('div')({
     textAlign: 'center',
 });
 
-export const Title = styled('h1')({
-    fontSize: '3.5rem',
-    color: 'rgb(100, 108, 255)',
-    marginBottom: '20px',
-});
-
 export const Description = styled('p')({
     fontSize: '1.2rem',
     maxWidth: '600px',
