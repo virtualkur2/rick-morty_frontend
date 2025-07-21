@@ -7,6 +7,7 @@ import SignupPage from "../pages/signup-page/SignupPage";
 import UnauthorizedPage from "../pages/unauthorized-page/UnauthorizedPage";
 import ProtectedRoute from "../components/guards/ProtectedRoute";
 import { UserRole } from "../types/user-role.type";
+import DashboardPage from "../pages/dashboard-page/DashboardPage";
 
 const PublicRoutes: RouteObject[] = [
     // Public Routes
@@ -31,7 +32,12 @@ const PublicRoutes: RouteObject[] = [
 const PrivateRoutes: RouteObject[] = [
     {
         Component: () => <ProtectedRoute allowedRoles={[UserRole.ADMIN, UserRole.USER]}/>,
-        children: [],
+        children: [
+            {
+                path: APP_ROUTES.dashboard,
+                Component: () => <DashboardPage />,
+            }
+        ],
     },
     {
         Component: () => <ProtectedRoute allowedRoles={[UserRole.ADMIN]} />,

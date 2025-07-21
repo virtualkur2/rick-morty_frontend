@@ -20,7 +20,6 @@ export const StyledSubmitButton = styled('button')({
 });
 
 export const StyledLogoutButton = styled('button')({
-    minWidth: '50%',
     backgroundColor: 'rgb(220, 53, 69)',
     color: 'rgb(255, 255, 255)',
     border: 'none',

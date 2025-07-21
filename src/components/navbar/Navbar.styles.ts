@@ -47,4 +47,5 @@ export const UserInfo = styled('span')({
     color: 'rgb(187, 187, 187)',
     marginRight: '15px',
     fontSize: '0.9rem',
+    textWrap: 'nowrap',
 });

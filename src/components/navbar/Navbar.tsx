@@ -25,15 +25,14 @@ const Navbar = () => {
                 {token
                     ? (
                         <>
-                            {user && <UserInfo>Welcome {user.name} ({user.role})</UserInfo>}
+                            {user && <UserInfo>Welcome {user.name} ({user.role.toUpperCase()})</UserInfo>}
                             <StyledNavLink to={APP_ROUTES.dashboard}>Dashboard</StyledNavLink>
                             {user?.role === UserRole.ADMIN && (
                                 <StyledNavLink
                                     to={APP_ROUTES.admin_users}
-                                    onClick={handleLogout}
                                 >Manage Users</StyledNavLink>
                             )}
-                            <LogoutButton type="button">Logout</LogoutButton>
+                            <LogoutButton type="button" onClick={handleLogout}>Logout</LogoutButton>
                         </>
                     ) : (
                         <>
