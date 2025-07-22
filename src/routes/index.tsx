@@ -9,6 +9,7 @@ import ProtectedRoute from "../components/guards/ProtectedRoute";
 import { UserRole } from "../types/user-role.type";
 import DashboardPage from "../pages/dashboard-page/DashboardPage";
 import AdminUserPage from "../pages/admin-user-page/AdminUserPage";
+import UserFavoritesPage from "../pages/user-favorites-page/UserFavoritesPage";
 
 const PublicRoutes: RouteObject[] = [
     // Public Routes
@@ -46,7 +47,11 @@ const PrivateRoutes: RouteObject[] = [
             {
                 path: APP_ROUTES.admin_users,
                 Component: () => <AdminUserPage />,
-            }
+            },
+            {
+                path: APP_ROUTES.user_favorites,
+                Component: () => <UserFavoritesPage />,
+            },
         ],
     }
 ];

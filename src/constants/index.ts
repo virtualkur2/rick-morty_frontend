@@ -5,4 +5,5 @@ export const APP_ROUTES = {
     unauthorized: '/unauthorized',
     dashboard: '/dashboard',
     admin_users: '/admin/users',
+    user_favorites: 'admin/users/:userId/favorites',
 } as const;

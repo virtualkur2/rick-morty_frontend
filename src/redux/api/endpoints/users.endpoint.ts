@@ -1,4 +1,5 @@
-import { apiService } from "..";
+import { API_TAGS, apiService } from "..";
+import type { FavoriteCharacterDto } from "../dtos/favorite-character.dto";
 import type { UserDto } from "../dtos/user.dto";
 
 const extendedApi = apiService.injectEndpoints({
@@ -9,7 +10,14 @@ const extendedApi = apiService.injectEndpoints({
                 method: 'GET'
             }),
         }),
+        getUserFavorites: build.query<FavoriteCharacterDto[], string>({
+            query: (userId) => ({
+                url: `users/${userId}/favorites`,
+                method: 'GET'
+            }),
+            providesTags: [API_TAGS.favorite]
+        }),
     })
 });
 
-export const { useGetUsersQuery } = extendedApi;
+export const { useGetUsersQuery, useGetUserFavoritesQuery } = extendedApi;

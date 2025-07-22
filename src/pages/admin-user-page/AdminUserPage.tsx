@@ -5,6 +5,8 @@ import { Container, FavoriteLink, StatusMessage, TableData, TableHeader, TableRo
 import { useSelector } from "react-redux";
 import { authSelector } from "../../redux/selectors/auth.selectors";
 import { useEffect } from "react";
+import { APP_ROUTES } from "../../constants";
+import { UserRole } from "../../types/user-role.type";
 
 const AdminUserPage = () => {
     const navigate = useNavigate();
@@ -12,8 +14,8 @@ const AdminUserPage = () => {
     const { user: currentUser } = useSelector(authSelector);
 
     useEffect(() => {
-        if (!currentUser || currentUser.role !== 'admin') {
-            navigate('/unauthorized'); // Or '/login', depending on desired behavior
+        if (currentUser?.role !== UserRole.ADMIN) {
+            navigate(APP_ROUTES.unauthorized); // Or '/login', depending on desired behavior
         }
     }, [currentUser, navigate]);
 
