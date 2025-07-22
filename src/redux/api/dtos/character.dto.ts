@@ -1,3 +1,5 @@
+import type { FilterOption } from "../../../components/filter/Filter";
+
 export const CharacterStatus =  {
     ALIVE: 'Alive',
     DEAD: 'Dead',
@@ -28,3 +30,11 @@ export interface CharacterDto {
     origin?: CharacterOrigin;
     created?: string;
 }
+
+export type CharacterFilterType = 'name' | 'species' | 'status';
+
+export const CharacterFilterOptions: FilterOption[] = [
+    {label: 'Name', value: 'name'},
+    {label: 'Species', value: 'species'},
+    {label: 'Status', value: 'status'},
+]
