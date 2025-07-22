@@ -8,6 +8,7 @@ import UnauthorizedPage from "../pages/unauthorized-page/UnauthorizedPage";
 import ProtectedRoute from "../components/guards/ProtectedRoute";
 import { UserRole } from "../types/user-role.type";
 import DashboardPage from "../pages/dashboard-page/DashboardPage";
+import AdminUserPage from "../pages/admin-user-page/AdminUserPage";
 
 const PublicRoutes: RouteObject[] = [
     // Public Routes
@@ -41,7 +42,12 @@ const PrivateRoutes: RouteObject[] = [
     },
     {
         Component: () => <ProtectedRoute allowedRoles={[UserRole.ADMIN]} />,
-        children: [],
+        children: [
+            {
+                path: APP_ROUTES.admin_users,
+                Component: () => <AdminUserPage />,
+            }
+        ],
     }
 ];
 
