@@ -14,12 +14,11 @@ import StarIcon from "../../components/icons/StarIcon";
 
 const DashboardPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const charactersPerPage = 20; // Rick & Morty API's default limit
 
     const navigate = useNavigate();
     const { token } = useSelector(authSelector);
-    const [addFavorite] = useAddFavoriteMutation();
-    const [removeFavorite] = useRemoveFavoriteMutation();
+    const [addFavorite, { isLoading: isAddingFavorite }] = useAddFavoriteMutation();
+    const [removeFavorite, { isLoading: isRemovingFavorite }] = useRemoveFavoriteMutation();
 
     useEffect(() => {
         if (!token) {
@@ -29,9 +28,6 @@ const DashboardPage = () => {
 
     const {
         data: charactersData,
-        // isLoading: isLoadingCharacters,
-        // isError: isErrorCharacters,
-        // error: charactersError,
     } = useGetCharactersQuery({ page: currentPage});
 
     const handlePageChange = (page: number) => {
@@ -44,14 +40,18 @@ const DashboardPage = () => {
         const attemptAddFavorite = async (characterId: number) => {
             await addFavorite({ characterId });
             }
-        attemptAddFavorite(characterId);
+        if(!(isAddingFavorite && isRemovingFavorite)) {
+            attemptAddFavorite(characterId);
+        }
     }
 
     const handleRemoveFavorite = (favoriteId: string) => {
         const attemptRemoveFavorite = async (favoriteId: string) => {
             await removeFavorite(favoriteId);
         }
-        attemptRemoveFavorite(favoriteId);
+        if(!(isAddingFavorite && isRemovingFavorite)) {
+            attemptRemoveFavorite(favoriteId);
+        }
     }
 
     const totalPages = charactersData?.info?.pages || 1;
